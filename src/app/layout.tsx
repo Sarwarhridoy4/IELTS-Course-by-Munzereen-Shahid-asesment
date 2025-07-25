@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`container mx-auto p-4 ${geistSans.variable} ${geistMono.variable} antialiased container mx-auto p-4`}
+        className={`container mx-auto p-1 ${geistSans.variable} ${geistMono.variable} antialiased container mx-auto p-4`}
       >
         <header className='bg-gray-50 h-16 mb-4 flex items-center justify-center'>
           <NavBar />
