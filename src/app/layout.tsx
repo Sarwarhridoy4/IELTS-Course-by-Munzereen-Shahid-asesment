@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
 
           <main className='flex-grow w-full max-w-screen-xl mx-auto px-4 py-4'>
             {children}
+            <FloatingButtons/>
           </main>
 
           <footer className='bg-gray-50 flex items-center justify-center shadow-inner'>

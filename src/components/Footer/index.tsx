@@ -17,7 +17,7 @@ const Footer = () => {
           <div className='mb-2 flex flex-col items-center justify-center gap-5 mx-auto my-10'>
             <Image
               src='/assets/logo/logo.svg'
-              alt='Get it on Google Play'
+              alt='10 minutes school logo'
               width={150}
               height={150}
               className='mr-2'

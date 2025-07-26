@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { MotionDiv } from "@/components/Motion_Div/motion-div";
 
 const NotFoundPage = () => (
-  <div className='w-full min-h-[calc(100vh-64px)] flex items-center justify-center bg-gradient-to-tr from-[#ffe4e6] via-[#fcdada] to-[#fecaca] px-4'>
+  <div className='w-full min-h-[calc(100vh-64px)] flex items-center justify-center px-4'>
     <MotionDiv
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
