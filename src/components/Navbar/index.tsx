@@ -4,9 +4,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, Search, Phone, Globe } from "lucide-react";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 const navItems = [
   { label: "ক্লাস ৬-১২", href: "#" },
@@ -18,7 +18,17 @@ const navItems = [
 ];
 
 const NavBar = () => {
-  const [language, setLanguage] = useState<"bn" | "en">("bn");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const currentLang = searchParams.get("lang") || "en";
+
+  const toggleLanguage = () => {
+    const newLang = currentLang === "en" ? "bn" : "en";
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set("lang", newLang);
+    router.push(`${pathname}?${newSearchParams.toString()}`);
+  };
 
   return (
     <nav className='w-full fixed top-0 z-50 bg-white shadow-sm'>
@@ -89,11 +99,11 @@ const NavBar = () => {
           <Button
             variant='outline'
             size='sm'
-            onClick={() => setLanguage((l) => (l === "bn" ? "en" : "bn"))}
+            onClick={toggleLanguage}
             aria-label='Toggle language'
           >
             <Globe className='h-4 w-4 mr-1' />
-            {language.toUpperCase()}
+            {currentLang.toUpperCase()}
           </Button>
 
           {/* Phone */}

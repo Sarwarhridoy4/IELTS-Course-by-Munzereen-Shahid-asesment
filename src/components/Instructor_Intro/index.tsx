@@ -2,33 +2,75 @@ import React from "react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { CourseData, InstructorValue } from "@/interface/interface";
+import Link from "next/link";
 
-const Instructor_Intro = () => {
+const Instructor_Intro: React.FC<{ data: CourseData }> = ({ data }) => {
+
+  const instructorSection = data.sections.find(
+    (section) => section.type === "instructors"
+  );
+
+  const instructor = instructorSection?.values?.[0] as InstructorValue;
   return (
-    <section className=' w-full mx-auto px-4 py-6'>
-      <h2 className='text-xl font-bold mb-4'>কোর্স ইনস্ট্রাক্টর</h2>
+    <section className='w-full max-w-4xl mx-auto px-4 py-6'>
+      <h2 className='text-2xl font-bold mb-6 text-gray-800'>
+        {instructorSection?.name || "Instructor Introduction"}
+      </h2>
 
-      <Card className='flex items-center gap-4 p-4 hover:shadow-md transition'>
-        <Image
-          src='/munzereen.png' // Make sure this image exists in /public
-          alt='Munzereen Shahid'
-          width={60}
-          height={60}
-          className='rounded-full object-cover'
-        />
+      {instructor.has_instructor_page ? (
+        <Link href={`/instructor/${instructor.slug}`} className="block">
+          <Card className='flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 hover:shadow-md transition cursor-pointer'>
+            <Image
+              src={instructor.image}
+              alt={instructor.name}
+              width={80}
+              height={80}
+              className='rounded-full object-cover shrink-0'
+            />
 
-        <CardContent className='p-0 flex-1'>
-          <div className='flex items-center justify-between'>
-            <h3 className='font-semibold'>Munzereen Shahid</h3>
-            <ArrowRight className='w-4 h-4 text-muted-foreground' />
-          </div>
-          <p className='text-sm text-muted-foreground mt-1'>
-            MSc (English), University of Oxford (UK); <br />
-            BA, MA (English), University of Dhaka; <br />
-            IELTS: 8.5
-          </p>
-        </CardContent>
-      </Card>
+            <CardContent className='p-0 w-full'>
+              <div className='flex justify-between items-center w-full'>
+                <h3 className='text-lg font-semibold text-gray-900'>
+                  {instructor.name}
+                </h3>
+                {instructor.has_instructor_page && (
+                  <ArrowRight className='w-5 h-5 text-gray-400' />
+                )}
+              </div>
+              <div
+                className='text-sm text-gray-600 mt-2 leading-relaxed'
+                dangerouslySetInnerHTML={{ __html: instructor.description }}
+              />
+            </CardContent>
+          </Card>
+        </Link>
+      ) : (
+        <Card className='flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 hover:shadow-md transition cursor-pointer'>
+          <Image
+            src={instructor.image}
+            alt={instructor.name}
+            width={80}
+            height={80}
+            className='rounded-full object-cover shrink-0'
+          />
+
+          <CardContent className='p-0 w-full'>
+            <div className='flex justify-between items-center w-full'>
+              <h3 className='text-lg font-semibold text-gray-900'>
+                {instructor.name}
+              </h3>
+              {instructor.has_instructor_page && (
+                <ArrowRight className='w-5 h-5 text-gray-400' />
+              )}
+            </div>
+            <p
+              className='text-sm text-gray-600 mt-2 leading-relaxed'
+              dangerouslySetInnerHTML={{ __html: instructor.description }}
+            />
+          </CardContent>
+        </Card>
+      )}
     </section>
   );
 };

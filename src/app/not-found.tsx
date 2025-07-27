@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MotionDiv } from "@/components/Motion_Div/motion-div";
+import { MotionDiv } from "@/components/MotionDiv/motion-div";
+
 
 const NotFoundPage = () => (
   <div className='w-full min-h-[calc(100vh-64px)] flex items-center justify-center px-4'>
