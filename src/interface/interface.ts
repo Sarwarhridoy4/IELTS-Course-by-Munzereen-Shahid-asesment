@@ -123,6 +123,8 @@ interface CourseData {
   platform: string;
   type: string;
   price: number;
+  original_price: number;
+  discount: number;
   modality: string;
   old_info: {
     cat_id: number;

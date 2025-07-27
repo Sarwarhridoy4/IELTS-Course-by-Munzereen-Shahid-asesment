@@ -7,8 +7,13 @@ import Image from "next/image";
 const VideoPlayer = () => {
   const [showVideo, setShowVideo] = useState(false);
   const video = {
-    src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    thumbnail: `https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg`,
+    src:
+      process.env.NEXT_PUBLIC_VIDEO_LINK ||
+      "https://www.youtube.com/watch?v=30y-wlDtIIQ",
+
+    thumbnail:
+      process.env.NEXT_PUBLIC_VIDEO_THUMB ||
+      "https://img.youtube.com/vi/30y-wlDtIIQ/hqdefault.jpg",
     alt: "YouTube Video",
     width: 640,
     height: 360,

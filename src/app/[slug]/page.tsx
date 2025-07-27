@@ -31,8 +31,7 @@ export default async function ProductPage({
 }) {
   const lang = searchParams?.lang ?? "en";
   const course = await getProductData(lang);
-  //   console.log("Course Info...:", course);
-
+  
   return (
     <section className='w-full max-w-screen-xl mx-auto px-4 py-8 space-y-10'>
       {/* Banner Section */}
