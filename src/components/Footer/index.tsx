@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import AppDownloadButton from "../AppDownloadButton";
 import Image from "next/image";
+import Link from "next/link"; // ✅ import Link from next/link
 
 const Footer = () => {
   return (
@@ -38,90 +39,108 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className='flex flex-col items-center lg:items-start'>
           <h3 className='font-semibold text-lg mb-4'>Company</h3>
           <ul className='space-y-3'>
             <li>
-              <a href='/career' className='text-sm hover:text-gray-300'>
+              <Link href='/career' className='text-sm hover:text-gray-300'>
                 Career / Recruitment
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/join-teacher' className='text-sm hover:text-gray-300'>
+              <Link
+                href='/join-teacher'
+                className='text-sm hover:text-gray-300'
+              >
                 Join as a Teacher
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/join-affiliate' className='text-sm hover:text-gray-300'>
+              <Link
+                href='/join-affiliate'
+                className='text-sm hover:text-gray-300'
+              >
                 Join as an Affiliate
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/privacy-policy' className='text-sm hover:text-gray-300'>
+              <Link
+                href='/privacy-policy'
+                className='text-sm hover:text-gray-300'
+              >
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/refund-policy' className='text-sm hover:text-gray-300'>
+              <Link
+                href='/refund-policy'
+                className='text-sm hover:text-gray-300'
+              >
                 Refund Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href='/terms-conditions'
                 className='text-sm hover:text-gray-300'
               >
                 Terms & Conditions
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
+
         <div className='flex flex-col items-center lg:items-start'>
           <h3 className='font-semibold text-lg mb-4'>Resources</h3>
           <ul className='space-y-3'>
             <li>
-              <a href='/blog' className='text-sm hover:text-gray-300'>
+              <Link href='/blog' className='text-sm hover:text-gray-300'>
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/book-store' className='text-sm hover:text-gray-300'>
+              <Link href='/book-store' className='text-sm hover:text-gray-300'>
                 Book Store
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/free-notes' className='text-sm hover:text-gray-300'>
+              <Link href='/free-notes' className='text-sm hover:text-gray-300'>
                 Free Notes & Guides
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href='/job-preparation'
                 className='text-sm hover:text-gray-300'
               >
                 Job Preparation
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/courses' className='text-sm hover:text-gray-300'>
+              <Link href='/courses' className='text-sm hover:text-gray-300'>
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href='/verify-certificate'
                 className='text-sm hover:text-gray-300'
               >
                 Verify Certificate
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/free-download' className='text-sm hover:text-gray-300'>
+              <Link
+                href='/free-download'
+                className='text-sm hover:text-gray-300'
+              >
                 Free Download
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
+
         <div className='flex flex-col items-center lg:items-start'>
           <h3 className='font-semibold text-lg mb-4'>Contact</h3>
           <ul className='space-y-3'>
