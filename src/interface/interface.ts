@@ -138,7 +138,7 @@ interface CourseData {
   checklist: ChecklistItem[];
   seo: any[];
   cta_text: CtaText;
-  sections: Section[];
+  sections: CourseLayoutSection[];
   is_cohort_based_course: boolean;
   secondary_cta_group: any[];
   delivery_method: string;
@@ -152,5 +152,19 @@ interface ApiResponse {
   payload: any[];
   status_code: number;
 }
+interface CourseLayoutValue {
+  icon: string;
+  id: string;
+  title: string;
+  subtitle: string;
+}
 
-export type { ApiResponse, CourseData, MediaItem, ChecklistItem, CtaText, OfferValue, InstructorValue, FeatureValue, GroupJoinEngagementValue, PointerValue, AboutValue, FeatureExplanationValue, TestimonialValue, FaqValue, Section };
+interface CourseLayoutSection {
+  type: string;
+  name: string;
+  description?: string;
+  values: CourseLayoutValue[];
+}
+
+
+export type { ApiResponse,CourseLayoutSection, CourseData, MediaItem, ChecklistItem, CtaText, OfferValue, InstructorValue, FeatureValue, GroupJoinEngagementValue, PointerValue, AboutValue, FeatureExplanationValue, TestimonialValue, FaqValue, Section };
