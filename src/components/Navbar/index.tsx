@@ -51,6 +51,7 @@ const NavBar = () => {
               </div>
             </SheetContent>
           </Sheet>
+
           <Image
             src='/assets/logo/logo.svg'
             alt='10 minutes school logo'
@@ -60,9 +61,9 @@ const NavBar = () => {
           />
         </div>
 
-        {/* Desktop Menu */}
-        <div className='hidden md:flex items-center gap-8'>
-          <Link href='/'>
+        {/* Desktop Menu: Logo + Search */}
+        <div className='hidden md:flex items-center gap-10'>
+          <Link href='/' className='flex-shrink-0'>
             <Image
               src='/assets/logo/logo.svg'
               alt='10 minutes school logo'
@@ -83,6 +84,7 @@ const NavBar = () => {
 
         {/* Right Controls */}
         <div className='flex items-center gap-3'>
+          {/* Desktop Nav Links */}
           <div className='hidden md:flex gap-4'>
             {navItems.map((item) => (
               <Link
@@ -106,7 +108,7 @@ const NavBar = () => {
             {currentLang.toUpperCase()}
           </Button>
 
-          {/* Phone */}
+          {/* Phone Number */}
           <a
             href='tel:16910'
             className='hidden md:flex items-center gap-1 text-sm font-medium'
@@ -114,10 +116,10 @@ const NavBar = () => {
             <Phone className='h-4 w-4' /> 16910
           </a>
 
-          {/* Login */}
+          {/* Login Button */}
           <Button
             size='sm'
-            className='bg-green-600 hover:bg-green-700 text-white'
+            className='bg-green-600 hover:bg-green-700 text-white mr-2'
           >
             লগ-ইন
           </Button>

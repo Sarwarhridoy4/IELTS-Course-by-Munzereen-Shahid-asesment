@@ -187,6 +187,9 @@ interface CourseLayoutValue {
   title_color?: string;
   thumbnail?: string;
   description_color?: string;
+  file_type?: string;
+  file_url?: string;
+  item?: string;
 }
 
 interface CourseLayoutSection {
