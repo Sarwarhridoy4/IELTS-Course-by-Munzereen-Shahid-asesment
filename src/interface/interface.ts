@@ -112,7 +112,17 @@ interface Section {
   description: string;
   bg_color: string;
   order_idx: number;
-  values: Array<OfferValue | InstructorValue | FeatureValue | GroupJoinEngagementValue | PointerValue | AboutValue | FeatureExplanationValue | TestimonialValue | FaqValue>;
+  values: Array<
+    | OfferValue
+    | InstructorValue
+    | FeatureValue
+    | GroupJoinEngagementValue
+    | PointerValue
+    | AboutValue
+    | FeatureExplanationValue
+    | TestimonialValue
+    | FaqValue
+  >;
 }
 
 interface CourseData {
@@ -158,6 +168,25 @@ interface CourseLayoutValue {
   title: string;
   subtitle: string;
   text?: string;
+  description?: string;
+  checklist?: ChecklistItem[];
+  background?: {
+    image: string;
+    primary_color: string;
+    secondary_color: string;
+  };
+  cta?: {
+    clicked_url: string;
+    color: string;
+    text: string;
+  };
+  video_thumbnail?: string;
+  video_type?: string;
+  video_url?: string;
+  top_left_icon_img?: string;
+  title_color?: string;
+  thumbnail?: string;
+  description_color?: string;
 }
 
 interface CourseLayoutSection {
@@ -167,5 +196,21 @@ interface CourseLayoutSection {
   values: CourseLayoutValue[];
 }
 
-
-export type { ApiResponse,CourseLayoutSection, CourseData, MediaItem, ChecklistItem, CtaText, OfferValue, InstructorValue, FeatureValue, GroupJoinEngagementValue, PointerValue, AboutValue, FeatureExplanationValue, TestimonialValue, FaqValue, Section };
+export type {
+  ApiResponse,
+  CourseLayoutSection,
+  CourseData,
+  MediaItem,
+  ChecklistItem,
+  CtaText,
+  OfferValue,
+  InstructorValue,
+  FeatureValue,
+  GroupJoinEngagementValue,
+  PointerValue,
+  AboutValue,
+  FeatureExplanationValue,
+  TestimonialValue,
+  FaqValue,
+  Section,
+};

@@ -1,46 +1,84 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardDescription, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
+import { CourseData } from "@/interface/interface";
 
-const FreeEbook: FC = () => {
+const FreeEbook: FC<{ data: CourseData }> = ({ data }) => {
+  const ebook = data?.sections?.find(
+    (section) => section.type === "group_join_engagement"
+  );
+  const item = ebook?.values?.[0];
+
+  if (!item) return null;
+
   return (
-    <Card className='w-full mx-auto bg-gradient-to-br from-gray-900 to-indigo-900 text-white shadow-lg rounded-xl overflow-hidden'>
-      <CardHeader className='p-4'>
-        <div className='flex items-center space-x-2'>
-          <span className='bg-yellow-400 text-gray-900 rounded-full p-2'>
-            📄
-          </span>
-          <CardTitle className='text-xl font-bold'>Free PDF</CardTitle>
+    <Card
+      className='w-full mx-auto text-white shadow-lg rounded-2xl overflow-hidden'
+      style={{
+        backgroundImage: `url(${item.background?.image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className='flex flex-col md:flex-row items-center justify-between gap-6 p-6'>
+        {/* Left: Text + Button */}
+        <div className='flex-1 space-y-4'>
+          <div className='flex items-center space-x-3'>
+            {item.top_left_icon_img ? (
+              <Image
+                src={item.top_left_icon_img}
+                alt='icon'
+                width={48}
+                height={48}
+                className='rounded-full bg-white p-1'
+              />
+            ) : (
+              <span className='bg-yellow-400 text-gray-900 rounded-full p-2 text-xl'>
+                📄
+              </span>
+            )}
+            <CardTitle
+              className='text-2xl font-bold'
+              style={{ color: item.title_color || "#fff" }}
+            >
+              {item.title}
+            </CardTitle>
+          </div>
+
+          <CardDescription
+            className='text-sm leading-relaxed'
+            style={{ color: item.description_color || "#ededed" }}
+          >
+            {item.description}
+          </CardDescription>
+
+          <a
+            href={item?.cta?.clicked_url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <Button
+              className='text-white text-sm px-6 py-2'
+              style={{
+                backgroundColor: item.cta?.color || "#22c55e",
+              }}
+            >
+              {item.cta?.text || "ডাউনলোড PDF"}
+            </Button>
+          </a>
         </div>
-        <CardDescription className='text-indigo-200 mt-2'>
-          IELTS Confirm 7+ Score (Guideline)
-        </CardDescription>
-        <CardDescription className='text-indigo-200'>
-          IELTS ভালো score করার সেরা Strategies জানুন সেরাদের গাইডলাইনে।
-        </CardDescription>
-      </CardHeader>
 
-      <CardContent className='p-4 flex justify-center'>
-        <Image
-          src='https://cdn.10minuteschool.com/images/catalog/product/pointer/Thumbnail_for_IELTS_Course_by_MS_1732621023962.jpg'
-          alt='Free PDF Thumbnail'
-          width={200}
-          height={200}
-          className='rounded-lg object-cover'
-        />
-      </CardContent>
-
-      <div className='p-4'>
-        <Button className='w-full bg-green-500 hover:bg-green-600 text-white'>
-          ডাউনলোড PDF
-        </Button>
+        {/* Right: Image */}
+        <div className='flex-shrink-0'>
+          <Image
+            src={item.thumbnail as string}
+            alt='Free PDF Thumbnail'
+            width={200}
+            height={200}
+            className='rounded-lg object-cover shadow-md'
+          />
+        </div>
       </div>
     </Card>
   );
