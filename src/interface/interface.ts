@@ -190,6 +190,17 @@ interface CourseLayoutValue {
   file_type?: string;
   file_url?: string;
   item?: string;
+  testimonial?: string;
+  profile_image?: string;
+  name?: string;
+  testimonial_text?: string;
+  thumb?: string;
+  question?: string;
+  answer?: string;
+  question_html?: string;
+  answer_html?: string;
+  question_text?: string;
+  answer_text?: string;
 }
 
 interface CourseLayoutSection {

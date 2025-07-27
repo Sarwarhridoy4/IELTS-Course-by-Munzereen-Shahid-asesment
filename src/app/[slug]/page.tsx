@@ -5,6 +5,7 @@ import CourseOutLine from "@/components/CourseOutLine";
 import CourseSlider from "@/components/CourseSlider";
 import ExclusiveFeature from "@/components/ExclusiveFeature";
 import FreeEbook from "@/components/FreeEbooks";
+import FreqAskedQuestion from "@/components/FreqAskedQuestion";
 import Instructor_Intro from "@/components/Instructor_Intro";
 import VideoPlayer from "@/components/IntroSlider";
 import PriceCard from "@/components/PriceCard";
@@ -52,6 +53,7 @@ export default async function ProductPage({
           <FreeEbook {...course} />
           <ExclusiveFeature {...course} />
           <AboutCourse {...course} />
+          <FreqAskedQuestion {...course} />
           <section className='w-full mx-auto px-4 py-6'>
             <h2 className='text-xl font-bold mb-4'>আরও জানুন</h2>
             <VideoPlayer {...course} />
