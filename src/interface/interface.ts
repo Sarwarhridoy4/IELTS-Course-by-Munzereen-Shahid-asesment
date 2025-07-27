@@ -157,6 +157,7 @@ interface CourseLayoutValue {
   id: string;
   title: string;
   subtitle: string;
+  text?: string;
 }
 
 interface CourseLayoutSection {

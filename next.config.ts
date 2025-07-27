@@ -30,6 +30,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "via.placeholder.com",
+        port: "", // Leave empty for default HTTPS port (443)
+        pathname: "/**", // Allow all paths under the domain
+      },
+      {
+        protocol: "https",
         hostname: "cdn.10minuteschool.com",
         port: "", 
         pathname: "/**", 

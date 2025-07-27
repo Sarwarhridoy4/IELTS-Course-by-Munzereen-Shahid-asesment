@@ -4,6 +4,7 @@ import CourseOutcomes from "@/components/CourseOutcomes";
 import CourseOutLine from "@/components/CourseOutLine";
 import CourseSlider from "@/components/CourseSlider";
 import ExclusiveFeature from "@/components/ExclusiveFeature";
+import FreeEbook from "@/components/FreeEbooks";
 import Instructor_Intro from "@/components/Instructor_Intro";
 import VideoPlayer from "@/components/IntroSlider";
 import PriceCard from "@/components/PriceCard";
@@ -31,7 +32,7 @@ export default async function ProductPage({
 }) {
   const lang = searchParams?.lang ?? "en";
   const course = await getProductData(lang);
-  
+
   return (
     <section className='w-full max-w-screen-xl mx-auto px-4 py-8 space-y-10'>
       {/* Banner Section */}
@@ -48,6 +49,7 @@ export default async function ProductPage({
           <Instructor_Intro {...course} />
           <CourseOutLine {...course} />
           <CourseOutcomes {...course} />
+          <FreeEbook {...course} />
           <ExclusiveFeature {...course} />
           <AboutCourse {...course} />
           <section className='w-full mx-auto px-4 py-6'>
