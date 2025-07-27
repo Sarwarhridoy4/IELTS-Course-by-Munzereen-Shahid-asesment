@@ -1,7 +1,3 @@
-Sure! Here's a professional and complete `README.md` for your project:
-
----
-
 # IELTS Course by Munzereen Shahid - Assessment
 
 This project is a **Frontend Engineer (Level 1)** assessment task designed to replicate the official IELTS course product page hosted by [10 Minute School](https://10minuteschool.com/product/ielts-course/). The implementation uses **React**, **Next.js**, **TypeScript**, and **TailwindCSS** to deliver a modern, scalable, and performant product page.
