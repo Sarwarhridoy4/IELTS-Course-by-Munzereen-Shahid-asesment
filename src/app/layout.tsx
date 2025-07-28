@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,8 +35,10 @@ export default function RootLayout({
         <div className='flex flex-col min-h-screen'>
           <header className='flex items-center justify-center shadow-sm'>
             <div className='w-full max-w-screen-xl mx-auto px-4'>
-              {/* @ts-expect-error: NavBar expects a 'lang' prop, but children may not always provide it */}
-              <NavBar lang={children?.props?.lang || "en"} />
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* @ts-expect-error: NavBar expects a 'lang' prop, but children may not always provide it */}
+                <NavBar lang={children?.props?.lang || "en"} />
+              </Suspense>
             </div>
           </header>
           <main className='flex-grow w-full max-w-screen-xl mx-auto px-4 py-4'>

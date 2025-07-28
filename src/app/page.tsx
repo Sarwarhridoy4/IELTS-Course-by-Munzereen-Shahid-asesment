@@ -3,7 +3,7 @@ import CourseCard from "@/components/CourseCard";
 import { ApiResponse, CourseData } from "@/interface/interface";
 
 type Props = {
-  searchParams?: { lang?: string };
+  searchParams: Promise<{ lang?: string }>;
 };
 
 const getCourse = async (lang: string): Promise<CourseData> => {
@@ -27,7 +27,8 @@ const getCourse = async (lang: string): Promise<CourseData> => {
 export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
-  const lang = searchParams?.lang || "en";
+  const params = await searchParams; // await searchParams here
+  const lang = params?.lang || "en";
   try {
     const course = await getCourse(lang);
 
@@ -65,7 +66,8 @@ export async function generateMetadata({
 }
 
 export default async function HomePage({ searchParams }: Props) {
-  const lang = searchParams?.lang || "en";
+  const params = await searchParams; // await searchParams here
+  const lang = params?.lang || "en";
   const course = await getCourse(lang);
 
   return (

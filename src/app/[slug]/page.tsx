@@ -11,6 +11,10 @@ import VideoPlayer from "@/components/IntroSlider";
 import PriceCard from "@/components/PriceCard";
 import TitleAndDescription from "@/components/TitleDescription";
 
+type Props = {
+  searchParams: Promise<{ lang?: string }>;
+};
+
 const getProductData = async (lang = "en") => {
   const baseUrl = process.env.NEXT_PUBLIC_COURSE_API_BASE as string;
   const platform = process.env.NEXT_PUBLIC_SOURCE_PLATFORM as string;
@@ -26,12 +30,9 @@ const getProductData = async (lang = "en") => {
   return res.json();
 };
 
-export default async function ProductPage({
-  searchParams,
-}: {
-  searchParams: { lang?: string };
-}) {
-  const lang = searchParams?.lang ?? "en";
+export default async function ProductPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const lang = params?.lang || "en";
   const course = await getProductData(lang);
 
   return (

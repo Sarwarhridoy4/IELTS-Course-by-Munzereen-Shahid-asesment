@@ -11,7 +11,7 @@ const Instructor_Intro: React.FC<{ data: CourseData }> = ({ data }) => {
     (section) => section.type === "instructors"
   );
 
-  const instructor = instructorSection?.values?.[0] as InstructorValue;
+  const instructor = instructorSection?.values?.[0] as unknown as InstructorValue;
   return (
     <section className='w-full max-w-4xl mx-auto px-4 py-6'>
       <h2 className='text-2xl font-bold mb-6 text-gray-800'>
