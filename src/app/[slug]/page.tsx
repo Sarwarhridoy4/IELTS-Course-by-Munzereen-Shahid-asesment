@@ -9,6 +9,7 @@ import FreqAskedQuestion from "@/components/FreqAskedQuestion";
 import Instructor_Intro from "@/components/Instructor_Intro";
 import VideoPlayer from "@/components/IntroSlider";
 import PriceCard from "@/components/PriceCard";
+import { TestimonialsSection } from "@/components/Testimonials";
 import TitleAndDescription from "@/components/TitleDescription";
 
 type Props = {
@@ -58,6 +59,7 @@ export default async function ProductPage({ searchParams }: Props) {
           <section className='w-full mx-auto px-4 py-6'>
             <h2 className='text-xl font-bold mb-4'>আরও জানুন</h2>
             <VideoPlayer {...course} />
+            <TestimonialsSection {...course} />
           </section>
         </div>
 
